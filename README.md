@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # Marcelo Venturini — Portfolio
-Personal CV / portfolio site, hosted on GitHub Pages.
+Personal CV / portfolio site
 Three languages: English , Spanish, Italian.
-# marcelo-venturini.github.io
-Marcelo Venturini Curriculum Vitae
-
+https://marcelo-venturini.github.io/
