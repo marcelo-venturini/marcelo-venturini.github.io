@@ -1,0 +1,669 @@
+/* =========================================================
+   COLOR & TYPOGRAPHY TOKENS
+   Tweak these to retint the site without touching anything else.
+========================================================= */
+:root {
+  --page-bg:        #edf0f2;
+  --surface:        #ffffff;
+  --surface-muted:  #f7f8f9;
+  --border:         #d3d9de;
+  --border-strong:  #bcc6ce;
+
+  --text:           #18212a;
+  --text-muted:     #53606b;
+  --text-soft:      #6b7782;
+
+  --accent:         #1f3753;   /* navy-leaning slate */
+  --accent-hover:   #182b41;
+  --accent-soft:    #e6ebef;
+
+  --footer-bg:      #151a1f;
+  --footer-border:  #0f1317;
+  --footer-text:    #d8e0e6;
+
+  --shadow-soft:    0 12px 30px rgba(16, 24, 32, 0.05);
+
+  --serif: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --sans:  "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.7;
+}
+
+img { max-width: 100%; }
+
+a {
+  color: inherit;
+  font: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(24, 33, 42, 0.34);
+}
+a:hover { text-decoration-color: currentColor; }
+
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #111a22;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p, ul, dl { margin-top: 0; }
+
+/* =========================================================
+   PAGE SHELL
+========================================================= */
+.home-page .site-shell {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 72px;
+}
+
+/* =========================================================
+   TOP NAV (Brand · Links · Language switch)
+========================================================= */
+.home-page .top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 8px 0 22px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-page .nav-brand {
+  color: #111a22;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.home-page .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+
+.home-page .nav-links a {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-page .nav-links a:hover { text-decoration: underline; }
+
+/* LANGUAGE SWITCH */
+.home-page .nav-lang {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-page .nav-lang a {
+  color: var(--text-muted);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-page .nav-lang a:hover { color: var(--accent); }
+
+.home-page .nav-lang a.active-lang {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
+}
+
+.home-page .nav-lang span {
+  color: var(--border-strong);
+  font-weight: 400;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.home-page .hero {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1.5fr) minmax(260px, 0.8fr);
+  gap: 40px;
+  padding: 38px 0 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-page .hero-photo { align-self: start; }
+
+.home-page .hero-photo img {
+  display: block;
+  width: 170px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid #cfd6dc;
+  box-shadow: 0 16px 30px rgba(16, 24, 32, 0.08);
+  background: var(--surface);
+}
+
+.home-page .hero-label,
+.home-page .section-label {
+  margin-bottom: 10px;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* "Recent Graduate" label gets a touch of accent so it carries weight */
+.home-page .hero-label--graduated {
+  color: var(--accent);
+}
+
+.home-page h1 {
+  font-size: clamp(3rem, 5.8vw, 4.9rem);
+  line-height: 0.98;
+}
+
+.home-page .hero-role {
+  max-width: 760px;
+  margin-top: 16px;
+  margin-bottom: 22px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-page .home-intro { max-width: 700px; }
+
+.home-page .home-intro p,
+.home-page .content-block p,
+.home-page .experience-summary,
+.home-page .project-summary {
+  color: var(--text-muted);
+  font-size: 1.03rem;
+}
+
+/* HERO ACTIONS */
+.home-page .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.home-page .hero-actions a,
+.home-page .project-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 11px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: transparent;
+  color: #111a22;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-page .hero-actions a:hover,
+.home-page .project-links a:hover {
+  background: var(--accent-soft);
+  border-color: #98a7b3;
+  text-decoration: none;
+}
+
+.home-page .hero-actions .button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #f8fafc;
+}
+
+.home-page .hero-actions .button-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* HERO SIDE (contact block) */
+.home-page .hero-side {
+  padding-left: 28px;
+  border-left: 1px solid var(--border);
+}
+
+.home-page .contact-block h2,
+.home-page .section-heading h2 { font-size: 1.9rem; }
+
+.home-page .contact-list { margin-bottom: 0; }
+
+.home-page .contact-list div + div {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.home-page .contact-list dt {
+  margin-bottom: 4px;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-page .contact-list dd {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* The graduated row gets a small accent dot before it */
+.home-page .contact-list .is-graduated dd::before {
+  content: "●";
+  margin-right: 8px;
+  color: var(--accent);
+  font-size: 0.7em;
+  position: relative;
+  top: -1px;
+}
+
+.home-page .contact-list .is-graduated dd {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.home-page .contact-list a,
+.home-page .compact-list a,
+.home-page .reference-list a,
+.home-page .experience-company a {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(24, 33, 42, 0.34);
+}
+
+/* =========================================================
+   MAIN CONTENT LAYOUT
+========================================================= */
+.home-page .home-content {
+  display: grid;
+  gap: 72px;
+  padding-top: 54px;
+}
+
+.home-page .intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.9fr);
+  gap: 52px;
+  align-items: start;
+}
+
+.home-page .intro-column {
+  display: grid;
+  gap: 36px;
+  align-content: start;
+}
+
+.home-page .content-block,
+.home-page .sidebar-block {
+  padding-top: 18px;
+  border-top: 2px solid #aab5bf;
+}
+
+.home-page .section-heading { margin-bottom: 18px; }
+
+.home-page .section-subtitle {
+  max-width: 760px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+}
+
+.home-page .about-block { max-width: 720px; }
+
+/* =========================================================
+   EDUCATION / CREDENTIALS
+========================================================= */
+.home-page .credential-item + .credential-item {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.home-page .credential-item h3,
+.home-page .experience-card h3,
+.home-page .project-card h3,
+.home-page .skills-card h3 {
+  font-size: 1.24rem;
+}
+
+.home-page .credential-institution,
+.home-page .experience-company {
+  margin: 8px 0 4px;
+  color: #24323e;
+  font-weight: 700;
+}
+
+.home-page .credential-meta,
+.home-page .project-context,
+.home-page .experience-meta {
+  color: var(--text-soft);
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+/* COMPACT LIST (used in education bullets, languages, certificates) */
+.home-page .compact-list,
+.home-page .experience-highlights,
+.home-page .project-highlights {
+  margin-bottom: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+}
+
+.home-page .compact-list li,
+.home-page .experience-highlights li,
+.home-page .project-highlights li {
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   FULL-WIDTH SECTIONS (Experience / Projects / Skills)
+========================================================= */
+.home-page .content-section {
+  display: grid;
+  gap: 24px;
+}
+
+.home-page .experience-list {
+  display: grid;
+  gap: 22px;
+}
+
+.home-page .experience-card,
+.home-page .project-card,
+.home-page .skills-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.home-page .experience-card {
+  padding: 28px 30px;
+  border-radius: 12px;
+}
+
+.home-page .experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.home-page .experience-meta {
+  display: grid;
+  gap: 5px;
+  min-width: 200px;
+  text-align: right;
+}
+
+.home-page .experience-tags,
+.home-page .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.home-page .tag {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* PROJECTS GRID */
+.home-page .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.home-page .project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px 28px 24px;
+  border-radius: 12px;
+}
+
+.home-page .project-top {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-page .project-context {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.home-page .project-links {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* SKILLS GRID */
+.home-page .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.home-page .skills-card {
+  padding: 26px 26px 24px;
+  border-radius: 12px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.home-page .site-footer {
+  margin-top: 84px;
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--footer-text);
+}
+
+.home-page .footer-inner {
+  width: min(1040px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 60px 0 44px;
+  text-align: center;
+}
+
+.home-page .footer-name {
+  margin-bottom: 0;
+  color: #ffffff;
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.home-page .footer-role {
+  margin-bottom: 8px;
+  color: #aebbc5;
+  font-size: 1.02rem;
+}
+
+.home-page .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 26px;
+}
+
+.home-page .footer-links a {
+  color: #dbe3e8;
+  text-decoration-color: rgba(219, 227, 232, 0.34);
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+.home-page .footer-cta { margin-top: 12px; }
+
+.home-page .footer-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: #f2f4f6;
+  color: #11181f;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-page .footer-cta a:hover { background: #ffffff; }
+
+.home-page .footer-divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 18px;
+  background: rgba(216, 224, 230, 0.24);
+}
+
+.home-page .footer-note {
+  margin-bottom: 0;
+  color: #98a7b3;
+  font-size: 0.94rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 980px) {
+  .home-page .hero,
+  .home-page .intro-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .home-page .hero-photo { max-width: 190px; }
+
+  .home-page .hero-side {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+  }
+
+  .home-page .projects-grid,
+  .home-page .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .footer-inner {
+    width: min(100% - 28px, 1040px);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .site-shell {
+    width: min(100% - 28px, 1120px);
+    padding-top: 20px;
+    padding-bottom: 56px;
+  }
+
+  .home-page .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 18px;
+  }
+
+  .home-page .nav-links { gap: 10px 16px; }
+
+  .home-page .hero {
+    padding-top: 22px;
+    padding-bottom: 40px;
+  }
+
+  .home-page .hero-photo img { width: 150px; }
+
+  .home-page h1 { font-size: clamp(2.4rem, 12vw, 3.6rem); }
+
+  .home-page .hero-role {
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+  }
+
+  .home-page .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-page .hero-actions a,
+  .home-page .project-links a { width: 100%; }
+
+  .home-page .home-content {
+    gap: 56px;
+    padding-top: 40px;
+  }
+
+  .home-page .experience-card,
+  .home-page .project-card,
+  .home-page .skills-card { padding: 22px; }
+
+  .home-page .experience-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .home-page .experience-meta {
+    min-width: 0;
+    text-align: left;
+  }
+}
