@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Marcelo Venturini — Portfolio
 
 Personal CV / portfolio site, hosted on GitHub Pages.
@@ -172,3 +173,7 @@ at `https://<username>.github.io`.
 - The hero photo is 170px wide on desktop. If your image is larger it'll be
   scaled down via `object-fit: cover` (4:5 aspect). For best results, crop
   your photo to roughly that ratio.
+=======
+# marcelo-venturini.github.io
+Marcelo Venturini Curriculum Vitae
+>>>>>>> 25a057b7848a8202a4646c10b08ad6dbded49332
